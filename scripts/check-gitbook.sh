@@ -19,14 +19,27 @@ while IFS= read -r file; do
     failed=1
   fi
 
-  if ! rg -F "<$file>" SUMMARY.md >/dev/null && ! rg -F "($file)" SUMMARY.md >/dev/null; then
-    printf 'Missing from SUMMARY.md: %s\n' "$file" >&2
+done < <(rg --files -g '*.md' | sort)
+
+# SUMMARY.md is the curated GitBook navigation. Historical or superseded
+# reports may remain in the repository without appearing in the sidebar.
+while IFS= read -r line; do
+  if [[ "$line" =~ \]\(\<([^\>]*)\>\) ]]; then
+    target=${BASH_REMATCH[1]}
+  elif [[ "$line" =~ \]\(([^\<][^\)]*)\) ]]; then
+    target=${BASH_REMATCH[1]}
+  else
+    continue
+  fi
+
+  if [[ ! -f "$target" ]]; then
+    printf 'Missing SUMMARY.md target: %s\n' "$target" >&2
     failed=1
   fi
-done < <(rg --files -g '*.md' | sort)
+done < SUMMARY.md
 
 if (( failed )); then
   exit 1
 fi
 
-printf 'GitBook check passed. All pages are wide and listed in SUMMARY.md.\n'
+printf 'GitBook check passed. All pages have wide frontmatter and SUMMARY.md links resolve.\n'
