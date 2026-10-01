@@ -41,6 +41,7 @@
   * [M365 Threat Intelligence Report, 2026-08-01](<M365 Threat Intelligence Report/M365 Threat Intelligence Report-2026-08-01.md>)
   * [M365 Threat Intelligence Report, 2026-08-31](<M365 Threat Intelligence Report/M365 Threat Intelligence Report-2026-08-31.md>)
   * [M365 Threat Intelligence Report — August 2026](<M365 Threat Intelligence Report/M365 Threat Intelligence Report-2026-09-01.md>)
+  * [M365 Threat Intelligence Report — September 2026](<M365 Threat Intelligence Report/M365 Threat Intelligence Report-2026-10-01.md>)
 * [Message Center Digest](<Message Center Digest/README.md>)
   * [Microsoft 365 Message Center Digest — Security & Compliance](<Message Center Digest/Message Center Digest-2026-05-05.md>)
   * [Microsoft 365 Message Center Digest — Security & Compliance](<Message Center Digest/Message Center Digest-2026-05-18.md>)
